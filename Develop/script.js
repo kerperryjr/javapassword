@@ -9,38 +9,44 @@ let upperAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-let builtArray = [...upperAlphabet, ...numbers]
-
+let password = "";
 function generatePassword(){
 
   if (confirm("Do you want your password to contain lowercase letters?")) 
   {
-    builtArray = [...builtArray, ...lowerAlphabet];
+    
+
+  }
+  if (confirm("Do you want your password to contain uperercase letters?")) 
+  {
+    
+
+  }
+  if (confirm("Do you want your password to contain numbers?")) 
+  {
+    
 
   }
   
-  let password = "";
 
   let passwordLength =prompt("how long do you want the password?")
-  for (let i = 0; i < passwordLength; i++) {
+  let generateLetterIndex = Math.floor(Math.random() *26);
+  for (let i = 0; i < passwordLength; i++) 
+  {
+    
   
-  
-    password += "";
+    password += "x";
 
   }
  
-  
   return password;
 }
 
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
-  let generateLetterIndex = Math.floor(Math.random() *26);
   passwordText.value = password;
-  builtArray.lowerAlphabet[generateLetterIndex]
-
-
+  password.preventDefault();
   return ;
 }
 
