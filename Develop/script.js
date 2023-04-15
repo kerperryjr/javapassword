@@ -9,33 +9,44 @@ let upperAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+let specialCharacters = ['!','@','#','$','%','^','&','*',')','(','+','=','?']
+
 let password = "";
 function generatePassword(){
-
+let validCharacters = []
   if (confirm("Do you want your password to contain lowercase letters?")) 
   {
-    
+    validCharacters =  validCharacters.concat(lowerAlphabet)
 
   }
   if (confirm("Do you want your password to contain uperercase letters?")) 
   {
-    
+    validCharacters = validCharacters.concat(upperAlphabet)
+
+  }
+  if (confirm("Do you want your password to contain special characters?")) 
+  {
+    validCharacters =  validCharacters.concat(specialCharacters)
 
   }
   if (confirm("Do you want your password to contain numbers?")) 
   {
-    
+    validCharacters = validCharacters.concat(numbers)
 
   }
-  
+  console.log (validCharacters);
 
   let passwordLength =prompt("how long do you want the password?")
-  let generateLetterIndex = Math.floor(Math.random() *26);
-  for (let i = 0; i < passwordLength; i++) 
-  {
-    
+
+  if (passwordLength < 8 || passwordLength > 128){
+    alert("Please provide a number between 8 & 128")
+    return "Try Again"
+  }
   
-    password += "x";
+  for (let i = 0; i < passwordLength; i++){
+    const generateLetterIndex = Math.floor(Math.random() * validCharacters.length);
+    const randomCharacter = validCharacters[generateLetterIndex];
+    password += randomCharacter;
 
   }
  
@@ -46,7 +57,7 @@ function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
-  password.preventDefault();
+
   return ;
 }
 
